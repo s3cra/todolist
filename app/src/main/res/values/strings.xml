@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">kotlin_try</string>
+    <string name="add_post">+ Разместить объявление</string>
+    <string name="search">Search</string>
+    <string name="previous_tasks">Previous Tasks</string>
+    <string name="today_tasks">Today Tasks</string>
+    <string name="categories">Categories</string>
+    <string name="completed_tasks">Completed Tasks</string>
+    <string name="create_new_task">Create New Task</string>
+    <string name="tasks">Tasks</string>
+    <string name="calendar">Calendar</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
