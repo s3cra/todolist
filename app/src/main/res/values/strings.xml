@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">kotlin_try</string>
+    <string name="app_name">TODO LIST</string>
     <string name="add_post">+ Разместить объявление</string>
     <string name="search">Search</string>
     <string name="previous_tasks">Previous Tasks</string>
-    <string name="today_tasks">Today Tasks</string>
+    <string name="current_tasks">Current Tasks</string>
     <string name="categories">Categories</string>
     <string name="completed_tasks">Completed Tasks</string>
     <string name="create_new_task">Create New Task</string>
