@@ -1,13 +1,11 @@
 package com.todolist
 
-import android.graphics.Matrix
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.transition.Visibility
 import com.todolist.databinding.FragmentTasksBinding
 import com.todolist.entity.Task
 
@@ -35,16 +33,17 @@ class TasksFragment : Fragment() {
             }
             println(binding.currentTasksArrow.rotation)
         }
-//        var viewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
-//        println(viewModel.allTasks.value)
-//        viewModel.insert(Task(
-//            title = "title1",
-//            description = "asdasdsa",
-//            dueDateTime = 123123131,
-//        ))
-//        viewModel.allTasks.observeForever {
-//            println(it)
-//        }
+        var viewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
+        println(viewModel.allTasks.value)
+        viewModel.insert(Task(
+            title = "title1",
+            description = "asdasdsa",
+            dueDateTime = 123123131,
+        ))
+        val adapter = TaskAdapter()
+        viewModel.allTasks.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
         return binding.root
     }
 

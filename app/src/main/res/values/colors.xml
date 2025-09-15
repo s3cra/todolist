@@ -7,4 +7,5 @@
     <color name="light_purple"> #7A12FF </color>
     <color name="transparent">#00000000</color>
     <color name="grey">#777E99</color>
+    <color name="grey_text">#A1A1C1</color>
 </resources>
