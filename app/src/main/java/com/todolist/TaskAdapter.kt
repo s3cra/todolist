@@ -1,6 +1,7 @@
 package com.todolist
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -24,6 +25,7 @@ class TaskAdapter(
                 .format(Instant.ofEpochSecond(task.dueDateTime))
             options.setOnClickListener{this@TaskAdapter.onItemOptionsClick(task)}
             root.setOnClickListener {this@TaskAdapter.onItemClick(task)}
+            if (task.isDone) binding.doneCheck.visibility = View.VISIBLE
         }
     }
 

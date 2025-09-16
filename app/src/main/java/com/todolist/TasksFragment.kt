@@ -112,7 +112,8 @@ class TasksFragment : Fragment() {
                 task.dueDateTime > Instant.now().epochSecond && !task.isDone
             })
             adapterPrev.submitList(it.filter { task -> task.dueDateTime <= Instant.now().epochSecond })
-            adapterComp.submitList(it.filter { task -> task.isDone })
+            adapterComp.submitList(it.filter { task -> task.isDone
+                    && task.dueDateTime > Instant.now().epochSecond})
         }
         return binding.root
     }
