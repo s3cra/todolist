@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_sheet"
+    android:orientation="vertical">
+
+    <android.widget.Button
+        android:id="@+id/mark_as_done_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/mark_as_done"
+        android:background="@color/transparent"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/white"
+        android:textAllCaps="false"/>
+    <android.widget.Button
+        android:id="@+id/delete_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:background="@color/transparent"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="@color/white"
+        android:textAllCaps="false"/>
+
+
+</LinearLayout>

@@ -1,29 +1,40 @@
 package com.todolist
 
-import android.R
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.todolist.databinding.TaskCardBinding
 import com.todolist.entity.Task
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
-class TaskAdapter : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback()) {
+class TaskAdapter(
+    private val onItemOptionsClick: (Task) -> Unit,
+    private val onItemClick: (Task) -> Unit
+) : ListAdapter<Task, TaskAdapter.TaskViewHolder>(DiffCallback()) {
 
-    class TaskViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = view.findViewById(R.id.text1)
+    inner class TaskViewHolder(val binding: TaskCardBinding) : RecyclerView.ViewHolder(binding.root){
+        fun bind(task: Task) = with(binding){
+            title.text = task.title
+            dateBy.text = DateTimeFormatter.ofPattern("dd/MM/yy")
+                .withZone(ZoneId.systemDefault())
+                .format(Instant.ofEpochSecond(task.dueDateTime))
+            options.setOnClickListener{this@TaskAdapter.onItemOptionsClick(task)}
+            root.setOnClickListener {this@TaskAdapter.onItemClick(task)}
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.simple_list_item_1, parent, false)
-        return TaskViewHolder(view)
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = TaskCardBinding.inflate(inflater, parent, false)
+        return TaskViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        holder.title.text = getItem(position).title
+        holder.bind(getItem(position))
     }
 
     class DiffCallback : DiffUtil.ItemCallback<Task>() {

@@ -1,8 +1,10 @@
 package com.todolist
 
+import android.app.UiModeManager.MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.todolist.databinding.ActivityMainBinding
 import androidx.fragment.app.FragmentTransaction
@@ -12,7 +14,7 @@ import com.todolist.entity.Task
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val tasksFragment = TasksFragment.newInstance()
-    private val profileFragment = ProfileFragment.newInstance("", "")
+    private val profileFragment = ProfileFragment.newInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
     }
 
     override fun onStart() {

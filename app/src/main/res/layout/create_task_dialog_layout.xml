@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:background="@drawable/dialog_sheet">
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/create_task_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/create_new_task"
+            android:textColor="@color/white"
+            android:fontFamily="@font/roboto_medium"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/title"
+            android:textColorHint="@color/white"
+            android:fontFamily="@font/roboto_regular"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/description"
+                android:textColorHint="@color/white"
+                android:fontFamily="@font/roboto_regular"
+                android:lines="5"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+            <android.widget.Button
+                android:id="@+id/category_btn"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/dark_button"
+                android:text="@string/category"
+                android:textColor="@color/grey"
+                android:textAllCaps="false"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"/>
+            <android.widget.Button
+                android:id="@+id/date_time_btn"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/dark_button"
+                android:text="@string/date_amp_time"
+                android:textColor="@color/grey"
+                android:textAllCaps="false"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"/>
+            <android.widget.Button
+                android:id="@+id/confirm_button"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/light_button"
+                android:text="@string/confirm"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/date_time_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <DatePicker
+            android:id="@+id/date_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:calendarTextColor="@color/white"
+            android:headerBackground="@color/transparent"
+            android:headerDayOfMonthTextAppearance="@color/white" />
+
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:numbersBackgroundColor="@color/transparent"
+            android:visibility="gone"
+            android:headerBackground="@color/transparent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <android.widget.Button
+                android:id="@+id/date_time_swap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dark_button"
+                android:text="@string/time"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                android:textAllCaps="false"/>
+            <android.widget.Button
+                android:id="@+id/date_time_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/light_button"
+                android:text="@string/confirm"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

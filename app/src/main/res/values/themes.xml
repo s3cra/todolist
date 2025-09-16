@@ -3,6 +3,7 @@
     <style name="Base.Theme.Kotlin_try" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/purple</item>
         <item name="colorPrimary"> @color/light_purple </item>
+        <item name="android:forceDarkAllowed"> true</item>
     </style>
 
     <style name="Theme.Kotlin_try" parent="Base.Theme.Kotlin_try" />

@@ -63,7 +63,7 @@
             app:layout_constraintStart_toEndOf="@id/profile_pic"
             app:layout_constraintTop_toBottomOf="@id/topcard_greeting"
             android:layout_marginStart="10dp"
-            tools:text="Keep Plan For 1 Day"
+            android:text="@string/keep_your_plan"
             android:fontFamily="@font/roboto_medium"
             android:textSize="16sp"
             android:visibility="visible"
@@ -93,10 +93,10 @@
         >
 
         <FrameLayout
+            android:id="@+id/previous_tasks"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/card"
-            android:layout_marginBottom="20dp"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -108,7 +108,8 @@
                 android:textColor="@color/white"
                 android:textSize="14sp"/>
 
-            <ImageButton
+            <ImageView
+                android:id="@+id/previous_tasks_arrow"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_gravity="end|center_vertical"
@@ -117,15 +118,17 @@
                 android:background="@color/transparent"/>
         </FrameLayout>
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/previous_tasks_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:visibility="gone"/>
         <FrameLayout
             android:id="@+id/current_tasks"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/card"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
             android:clickable="true"
             >
             <TextView
@@ -151,49 +154,16 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/current_tasks_list"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:visibility="gone"/>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/card"
-            android:layout_marginBottom="20dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="12dp"
-                android:gravity="center_vertical"
-                android:text="@string/categories"
-                android:fontFamily="@font/roboto_regular"
-                android:textColor="@color/white"
-                android:textSize="14sp"/>
-
-            <ImageButton
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="40dp"
-                android:src="@drawable/add_box"
-                android:background="@color/transparent"/>
-
-            <ImageButton
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_gravity="end|center_vertical"
-                android:layout_marginEnd="11dp"
-                android:src="@drawable/expand_down_circle"
-                android:background="@color/transparent"/>
-        </FrameLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:visibility="gone"/>
+
         <FrameLayout
+            android:id="@+id/completed_tasks"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="@drawable/card"
+            android:layout_marginTop="20dp"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -205,7 +175,8 @@
                 android:textColor="@color/white"
                 android:textSize="14sp"/>
 
-            <ImageButton
+            <ImageView
+                android:id="@+id/completed_tasks_arrow"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:layout_gravity="end|center_vertical"
@@ -215,13 +186,16 @@
         </FrameLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/completed_tasks_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:visibility="gone"/>
 
     </LinearLayout>
 
     <android.widget.Button
+        android:id="@+id/create_task_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"

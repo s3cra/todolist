@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/bg_purple"
+    android:orientation="vertical"
+    android:padding="15dp"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/username"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:hint="@string/username"
+        android:textColorHint="@color/grey_text"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="40sp"
+        android:gravity="center"
+        android:textAlignment="center"/>
 
-</FrameLayout>
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        app:cpb_progress="65"
+        app:cpb_progress_max="100"
+        app:cpb_progressbar_width="20dp"
+        app:cpb_background_progressbar_width="25dp"
+        android:layout_gravity="center"
+        app:cpb_background_progressbar_color="@color/purple"
+        app:cpb_progressbar_color="@color/light_purple"
+        android:indeterminate="false"
+        app:cpb_round_border="true"
+        app:cpb_start_angle="0"
+        app:cpb_progress_direction="to_right"
+        android:layout_height="150dp"/>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        tools:text="You Have Done 70% Of Your Tasks"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:gravity="center"/>
+    <android.widget.Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/light_button"
+        android:text="@string/save"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+
+</LinearLayout>
