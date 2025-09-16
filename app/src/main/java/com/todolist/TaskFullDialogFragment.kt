@@ -21,6 +21,13 @@ import java.time.ZoneOffset
 class TaskFullDialogFragment(val task: Task) : DialogFragment() {
     lateinit var binding: TaskFullDialogLayoutBinding
 
+    private fun toFormat(s: Int) : String{
+        return when{
+            s < 10 -> "0$s"
+            else -> "$s"
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,8 +38,9 @@ class TaskFullDialogFragment(val task: Task) : DialogFragment() {
         binding.description.setText(task.description)
         val dateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(task.dueDateTime)
             , ZoneId.systemDefault())
-        val date = "${dateTime.dayOfMonth}/${dateTime.month.ordinal}/${dateTime.year}"
-        val time = "${dateTime.hour}:${dateTime.minute}"
+
+        val date = "${toFormat(dateTime.dayOfMonth)}/${toFormat(dateTime.month.ordinal)}/${dateTime.year}"
+        val time = "${toFormat(dateTime.hour)}:${toFormat(dateTime.minute)}"
         binding.date.text = date
         binding.time.text = time
         if (task.isDone){
