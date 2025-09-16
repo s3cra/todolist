@@ -23,10 +23,13 @@ class ProfileFragment : Fragment() {
         binding = FragmentProfileBinding.inflate(inflater)
         var viewModel = ViewModelProvider(this)[TaskViewModel::class]
         viewModel.allTasks.observe(viewLifecycleOwner){
-            binding.progress.setProgressWithAnimation( when{
+            var donePercentage = when{
                 it.isNotEmpty() -> (it.count { task -> task.isDone }).toFloat() / (it.size).toFloat() * 100f
                 else -> 0f
-            }, 500)
+            }
+            binding.progress.setProgressWithAnimation(donePercentage , 500)
+            var donePercentageText = "You Have Done $donePercentage% Of Your Tasks!"
+            binding.text.text = donePercentageText
         }
         val sharedPref = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()

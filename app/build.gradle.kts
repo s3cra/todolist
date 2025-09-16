@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.kotlin_try"
-        minSdk = 29
+        minSdk = 26
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
